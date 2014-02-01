@@ -173,7 +173,6 @@ body.menu-active div#content .menu-trigger {
 
 /* panel */
 ul.item-list {
-  background-color: #efefef;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -195,9 +194,24 @@ ul.item-list li {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
 }
 
+ul.item-list li:first-child {
+	-webkit-border-top-left-radius: 5px;
+	 border-top-left-radius: 10px;
+	 -webkit-border-top-right-radius: 5px;
+	 border-top-right-radius: 10px;
+}
+
+ul.item-list li:last-child {
+	-webkit-border-bottom-left-radius: 5px;
+	 border-bottom-left-radius: 10px;
+	 -webkit-border-bottom-right-radius: 5px;
+	 border-bottom-right-radius: 10px;
+}
 /* page */
 div.info {
+  border-radius: 10px;
   padding-left: 10px;
+  margin-bottom: 10px;
   background-color: #efefef;
 }
 
