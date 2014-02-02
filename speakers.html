@@ -1,5 +1,11 @@
 <head>
 	<link rel="stylesheet" href="style.css">
+	<script src="preload.js"></script>
+	<script>
+		window.onload = function(){
+			getJson(speakerListTemplate);
+		}
+	</script>
 </head>
 <body>
 <!-- Navigation -->
@@ -17,38 +23,8 @@
 <div id="content">
 	<div class="menu-trigger"></div>
 	<h1>Speakers</h1>
-	<ul class="item-list">
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-    <li>
-      <a href="speaker.html"><div>That Speaker</div></a>
-    </li>
-  </ul>
+	<ul class="item-list" id="speaker-list">
+	</ul>
 </div>
 <script src="script.js"></script>
 </body>

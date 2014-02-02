@@ -1,5 +1,11 @@
 <head>
 	<link rel="stylesheet" href="style.css">
+	<script src="preload.js"></script>
+	<script>
+		window.onload = function(){
+			getJson(speakerTemplate);
+		}
+	</script>
 </head>
 <!-- Navigation -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,21 +22,14 @@
 <div id="content">
 	<div class="menu-trigger"></div>
   <div class="Speaker">
-    <h1>Me</h1>
-    <div class="info button">
-      <a href="#">Website</a>
+    <h1 id="name"></h1>
+    <div id="website" class="info button">
     </div>
-    <div class="description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non sapien a metus euismod vestibulum. Vestibulum commodo orci quis laoreet volutpat. Sed turpis massa, condimentum eget justo ac, accumsan viverra enim. Praesent interdum vitae libero at feugiat. Curabitur hendrerit consequat dolor in tincidunt. Pellentesque sodales pulvinar diam sit amet euismod. Ut euismod elit justo, nec ullamcorper orci blandit vitae. Etiam suscipit nisi gravida leo placerat, in rutrum massa condimentum. Duis ultrices hendrerit eleifend.
+    <div id="description" class="description">
     </div>
     <br>
-    <h3>Talks:</h3>
-    <ul class="item-list">
-      <li>
-        <a href="panel.html">
-          <div>The greatest talk ever</div>
-        </a>
-      </li>
+    <h3 id="fill-panels"></h3>
+    <ul id="panels" class="item-list">
     </ul>
 </div>
 	<script src="script.js"></script>
