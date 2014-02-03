@@ -78,7 +78,7 @@ var panelListTemplate = function(){
 		console.log(list[item])
 		var title = list[item].info.title
 		var time = getDate(list[item].data.time)
-		html=html+"<li><a href='panel.html#"+item+"'><div>"+time+" | "+title+"</div></a></li>"
+		html=html+"<li><a href='panel.html#"+item+"'><div>"+time+"</div><div>"+title+"</div></a></li>"
 	}
 	document.getElementById('panel-list').innerHTML = html
 }

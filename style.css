@@ -218,13 +218,11 @@ ul.item-list li a {
 	color: black;
 }
 
-ul.item-list li a div {
-}
-
-ul.item-list li a div:before {
+ul.item-list li a div:first-child:after {
 	content: '\f18e';
 	display: block;
-	float:left;
+	vertical-align: center;
+	float:right;
 	margin-right: 10px;
 	font-family: 'FontAwesome';
 }
