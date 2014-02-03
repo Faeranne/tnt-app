@@ -130,7 +130,7 @@ div#content {
   transition: all 300ms;
 }
 div#content div.menu-trigger {
-  position: fixed;
+  position: absolute;
   top: 30px;
   left: 30px;
   width: 36px;
@@ -170,7 +170,6 @@ body.menu-active div#content {
 }
 
 body.menu-active div#content .menu-trigger {
-  left: 314px;
 }
 
 body div#content > h1 {

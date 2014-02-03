@@ -1,31 +1,57 @@
 {
 	"panels":{
 		"temp1":{
-			"title":"My First Convention",
-			"description":"This is a test description",
-			"time":"9:30 PM",
-			"tags":"Manga, Guests",
-			"website":"example.com",
+			"info":{
+				"title":"My First Convention",
+				"description":"This is a test description",
+				"website":"example.com"
+			},
+			"data":{
+				"time":"1405105200",
+				"tags":[
+					"Manga",
+					"Guest",
+					"Q&A"
+				]
+			},
 			"speakers":[
-				"1922n"
+				"1922n",
+				"2922n"
 			]
 		},
 		"temp2":{
-			"title":"Opening Ceremonies",
-			"description":"This is a test description",
-			"time":"9:35 PM",
-			"tags":"Manga, Guests",
-			"website":"example.com",
+			"info":{
+				"title":"Opening Ceremonies",
+				"description":"This is a test description",
+				"website":"example.com"
+			},
+			"data":{
+				"time":"1405105200",
+				"tags":[
+					"Manga",
+					"Guest",
+					"Q&A"
+				]
+			},
 			"speakers":[
 				"2922n"
 			]
 		},
 		"temp3":{
-			"title":"I cant think of a title",
-			"description":"This is a test description",
-			"time":"9:57 PM",
-			"tags":"Manga, Guests",
-			"website":"example.com",
+			"info":{
+				"title":"I cant think of a title",
+				"description":"This is a test description",
+				"time":"9:57 PM",
+				"tags":"Manga, Guests",
+				"website":"example.com"
+			},
+			"data":{
+				"time":"1405105200",
+				"tags":[
+					"Manga",
+					"Guest"
+				]
+			},
 			"speakers":[
 				"3922n"
 			]
@@ -45,9 +71,9 @@
 			"website":"example.com",
 			"description":"This is a test description",
 			"panels":[
+				"temp1",
 				"temp2"
 			]
-
 		},
 		"3922n":{
 			"title":"Who inu",
@@ -56,8 +82,6 @@
 			"panels":[
 				"temp3"
 			]
-
-
 		}
 	}
 }
