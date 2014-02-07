@@ -13,7 +13,6 @@
 body {
   margin: 0;
   padding: 0;
-  background: #556270;
   color: #353d46;
   font: 18px/37px 'Oxygen', sans-serif;
 }
@@ -27,6 +26,7 @@ h1, h2, h3 {
   Menu
 */
 nav#slide-menu {
+  background: #556270;
   position: fixed;
   top: 0;
   left: -100px;
@@ -141,6 +141,7 @@ div#content div.menu-trigger {
   -moz-transition: all 300ms;
   -webkit-transition: all 300ms;
   transition: all 300ms;
+  z-index: 1;
 }
 div#content div.menu-trigger:before {
   content: '\f0c9';
@@ -172,11 +173,29 @@ body.menu-active div#content {
 body.menu-active div#content .menu-trigger {
 }
 
-body div#content > h1 {
+body div.page> h1 {
   margin-left: 50px;
-  }
+}
 
-/* panel */
+/* loader */
+div#loader {
+	position: absolute;
+	width: 500px;
+	height: 2em;
+	background-color: #a0a0a0;
+	z-index: -5;
+	text-align: center;
+	left: 50%;
+	top: 50%;
+	margin: -1em 0 0 -250px;
+	border-radius: 19px;
+}
+
+div#loader.visible {
+	z-index: 5;
+}
+
+/* page */
 ul.item-list {
   list-style: none;
   margin: 0;
@@ -230,7 +249,7 @@ ul.item-list li a div:first-child:after {
 div.description {
 	line-height: 1.2em;
 }
-/* page */
+
 div.info {
   border-radius: 10px;
   padding-left: 10px;
@@ -253,4 +272,29 @@ div.button {
 div.button a {
   text-decoration: none;
   color: black;
+}
+
+div#map-canvas {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+div.nopadding#content {
+	padding: 5px;
+}
+
+div.page {
+	display:none;
+}
+
+div.page.show-page {
+	display:inherit;
+}
+
+div#calender-message {
+	background: #ff0000;
+	text-align: center;
+	border-radius: 10px;
 }
