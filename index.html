@@ -1,6 +1,6 @@
 <!-- Navigation -->
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="js/preload.js"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
 		<li class="speaker"><a href="#speaker-list">Speakers</a></li>
 		<li class="panel"><a href="#panel-list">Panels</a></li>
 		<li class="calendar"><a href="#calender">My Calender</a></li>
-		<li class="sep settings"><a href="settings.html">Settings</a></li>
+		<li class="sep settings"><a href="#settings">Settings</a></li>
 	</ul>
 </nav>
 <!-- Content panel -->
@@ -76,6 +76,20 @@
 		<ul id="day3-list" class="item-list">
 		</ul>
 		<div id="calender-message"></div>
+		</div>
+	</div>
+	<div id="settings-page" class="page">
+	  <h1>Settings</h1>
+	  <div class="settings">
+		  <div id="attached" class="info">
+			</div>
+			<div class="info">
+				Send reminders for my calender?
+				<input type="checkbox"></input>
+			</div>
+			<div class="button">
+				<a href="#settings" onclick="clearCalender()">Clear Calender and Notifications</a>
+			</div>
 		</div>
 	</div>
 </div>

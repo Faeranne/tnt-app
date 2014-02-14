@@ -193,6 +193,9 @@ var calenderTemplate = function(){
 	}
 }
 
+var settingsTemplate = function(){
+}
+
 var Days = [
 	"Sunday",
 	"Monday",
@@ -269,6 +272,11 @@ var setCalender = function(){
 	setPage('calender-page');
 }
 
+var setSettings = function(){
+	settingsTemplate();
+	setPage('settings-page');
+}
+
 var startLoad = function(){
 	document.getElementById('loader').classList.add('visible');
 }
@@ -303,6 +311,10 @@ var hashWatcher = function(){
 		case "#calender":
 			console.log('calender');
 			setCalender();
+			break;
+		case "#settings":
+			console.log('settings');
+			setSettings();
 			break;
 		default:
 			setIndex();
