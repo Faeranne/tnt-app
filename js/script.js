@@ -13,4 +13,4 @@
 	}
 }).call(this)
 
-getJson(hashWatcher);
+getJson(hashWatcher, '/data.json');

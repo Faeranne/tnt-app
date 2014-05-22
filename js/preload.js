@@ -3,7 +3,7 @@
  * Global
  */
 
-var getJson = function(cb){
+var getJson = function(cb,json){
 	function reqListener () {
 		window.appData = JSON.parse(this.responseText)
 		cb()
@@ -11,7 +11,7 @@ var getJson = function(cb){
 
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
-	oReq.open("get", 'data.json', true);
+	oReq.open("get", json, true);
 	oReq.send();
 }
 
@@ -56,6 +56,7 @@ var panelTemplate = function(){
 		var name = appData.speakers[id].title
 		speakersHTML = speakersHTML + "<li><a href='#speaker."+id+"'><div>"+name+"</div></a></li>"
 	}
+	var commentHTML = "<a href='https://twitter.com/intent/tweet?screen_name=tokyointulsa&hashtags=panel"+id+"'>Leave A Comment</a>"
 	document.getElementById('fill-speakers').innerHTML = "Speakers:"
 	document.getElementById('panel-name').innerHTML = nameHTML
 	document.getElementById('time').innerHTML = timeHTML
@@ -64,6 +65,7 @@ var panelTemplate = function(){
 	document.getElementById('calender').innerHTML = calenderHTML
 	document.getElementById('description').innerHTML = descriptionHTML
 	document.getElementById('speakers').innerHTML = speakersHTML
+	document.getElementById('comment').innerHTML = commentHTML
 }
 	
 var speakerTemplate = function(){
@@ -353,4 +355,8 @@ var removeCalender = function(id){
 	var calenderHTML = "<a href='#panel."+id+"' onClick='addCalender(\""+id+"\")'>Add To Calender</a>"
 	document.getElementById('calender').innerHTML = calenderHTML
 	stopLoad();
+}
+
+var getComments = function(id){
+
 }
