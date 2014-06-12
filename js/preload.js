@@ -49,6 +49,9 @@ var panelTemplate = function(){
 		calenderHTML = "<a href='#panel."+id+"' onClick='addCalender(\""+id+"\")'>Add To Calender</a>"
 	}
 	var descriptionHTML = appData.panels[id].info.description
+	console.log(appData.panels[id].info.description)
+	var commentHTML = "<a href='https://twitter.com/intent/tweet?screen_name=tokyointulsa&hashtags=panel"+id+"'>Leave A Comment</a>"
+	var getCommentHTML = "<a href='https://twitter.com/search?f=realtime&q=%23panel"+id+"%20%40tokyointulsa'>View Comments for this Panel</a>"
 	var speakersHTML = ""
 	var speakers = appData.panels[id].speakers
 	for(speaker in speakers){
@@ -56,16 +59,16 @@ var panelTemplate = function(){
 		var name = appData.speakers[id].title
 		speakersHTML = speakersHTML + "<li><a href='#speaker."+id+"'><div>"+name+"</div></a></li>"
 	}
-	var commentHTML = "<a href='https://twitter.com/intent/tweet?screen_name=tokyointulsa&hashtags=panel"+id+"'>Leave A Comment</a>"
 	document.getElementById('fill-speakers').innerHTML = "Speakers:"
 	document.getElementById('panel-name').innerHTML = nameHTML
 	document.getElementById('time').innerHTML = timeHTML
 	document.getElementById('tags').innerHTML = tagsHTML
 	document.getElementById('website').innerHTML = websiteHTML
 	document.getElementById('calender').innerHTML = calenderHTML
-	document.getElementById('description').innerHTML = descriptionHTML
+	document.querySelector('#panel-page #description').innerHTML = descriptionHTML
 	document.getElementById('speakers').innerHTML = speakersHTML
-	document.getElementById('comment').innerHTML = commentHTML
+	document.querySelector('#comment').innerHTML = commentHTML
+	document.querySelector('#getcomment').innerHTML = getCommentHTML
 }
 	
 var speakerTemplate = function(){
@@ -195,7 +198,7 @@ var calenderTemplate = function(){
 	}
 }
 
-var settingsTemplate = function(){
+var aboutTemplate = function(){
 }
 
 var Days = [
@@ -274,9 +277,9 @@ var setCalender = function(){
 	setPage('calender-page');
 }
 
-var setSettings = function(){
-	settingsTemplate();
-	setPage('settings-page');
+var setAbout = function(){
+	aboutTemplate();
+	setPage('about-page');
 }
 
 var startLoad = function(){
@@ -314,9 +317,9 @@ var hashWatcher = function(){
 			console.log('calender');
 			setCalender();
 			break;
-		case "#settings":
-			console.log('settings');
-			setSettings();
+		case "#about":
+			console.log('about');
+			setAbout();
 			break;
 		default:
 			setIndex();

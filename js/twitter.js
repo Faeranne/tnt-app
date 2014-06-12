@@ -1,10 +1,11 @@
-var getJson = function(id,element){
+var getComments = function(id,cb){
 	function reqListener () {
 		var json = JSON.parse(this.responseText)
+		cb(json);
 	}
-
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
-	oReq.open("get", "tnt.engine.projectmakeit.com/comments/?panel="+id, true);
+	oReq.open("get", "/comments/?panel="+id, true);
 	oReq.send();
 }
+

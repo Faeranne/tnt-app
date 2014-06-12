@@ -2,7 +2,6 @@
 <head>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/preload.js"></script>
-	<script src="js/twitter.js"></script>
 </head>
 <body>
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
@@ -15,7 +14,7 @@
 		<li class="speaker"><a href="#speaker-list">Speakers</a></li>
 		<li class="panel"><a href="#panel-list">Panels</a></li>
 		<li class="calendar"><a href="#calender">My Calender</a></li>
-		<li class="sep settings"><a href="#settings">Settings</a></li>
+		<li class="sep settings"><a href="#about">About</a></li>
 	</ul>
 </nav>
 <!-- Content panel -->
@@ -35,7 +34,7 @@
 	  <div class="Speaker">
 		<div id="website" class="info button">
 		</div>
-		<div id="description" class="description">
+		<div id="description" class="info description">
 		</div>
 		<br>
 		<h3 id="fill-panels"></h3>
@@ -59,13 +58,15 @@
 		</div>
 		<div id="calender" class="info button">
 		</div>
-		<div id="description" class="description">
+		<div id="description" class="info description">
 		</div>
 		<br>
 		<h3 id="fill-speakers"></h3>
 		<ul id="speakers" class="item-list">
 		</ul>
-		<div id="comment" class="info">
+		<div id="comment" class="info button">
+		</div>
+		<div id="getcomment" class="info button">
 		</div>
 	</div>
 </div>
@@ -81,18 +82,11 @@
 		<div id="calender-message"></div>
 		</div>
 	</div>
-	<div id="settings-page" class="page">
-	  <h1>Settings</h1>
-	  <div class="settings">
-		  <div id="attached" class="info">
-			</div>
-			<div class="info">
-				Send reminders for my calender?
-				<input type="checkbox"></input>
-			</div>
-			<div class="button">
-				<a href="#settings" onclick="clearCalender()">Clear Calender and Notifications</a>
-			</div>
+	<div id="about-page" class="page">
+	  <h1>About</h1>
+	  <div class="about">
+		<div class="info">
+			The Tokyo in Tulsa app was designed to help make your experiance at TnT more enjoyable.  It was written by <a href="http://projectmakeit.com/">Project Make It</a> under the leadership of <a href="mailto:blixa@projectmakeit.com">Blixa Morgan.</a> If you find any issues with the site, please let us know at <a href="mailto:app@tokyointulsa.com">app@tokyointulsa.com</a>
 		</div>
 	</div>
 </div>

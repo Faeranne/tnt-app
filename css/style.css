@@ -248,6 +248,7 @@ ul.item-list li a div:first-child:after {
 
 div.description {
 	line-height: 1.2em;
+	padding: 5px;
 }
 
 div.info {
