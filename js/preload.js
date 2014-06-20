@@ -108,9 +108,20 @@ var panelListTemplate = function(){
 
 var speakerListTemplate = function(){
 	if(!speakerBuilt){
-		list = window.appData['speakers']
-		html=''
+		var keys = [];
+		var list = window.appData['speakers']
+		var html=''
 		for(item in list){
+			if (list.hasOwnProperty(item)){
+				keys.push(item);
+			}
+		}
+		keys.sort()
+
+		len = keys.length;
+		
+		for(i = 0; i < len; i++){
+			item = keys[i];
 			var title = list[item].title
 			var url = list[item].url
 			html=html+"<li><a href='#speaker."+item+"'><div>"+title+"</div></a></li>"
