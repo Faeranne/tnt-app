@@ -24,7 +24,8 @@ panelBuilt = false;
 
 var panelTemplate = function(){
 	var id = location.hash.split('.')[1]
-	var time = getDate(appData.panels[id].data.time)
+	var time = getDate(appData.panels[id].data.time, appData.panels[id].data.day)
+	var loc = appData.panels[id].info.location
 	var tags = ""
 	for(tag in appData.panels[id].data.tags){
 		tags = tags + appData.panels[id].data.tags[tag]
@@ -34,6 +35,7 @@ var panelTemplate = function(){
 	}
 	var nameHTML = appData.panels[id].info.title
 	var timeHTML = "Time: " + time
+	var locationHTML = "Location: " + loc
 	var tagsHTML = "Tags: " + tags
 	var websiteHTML = "<a href='"+appData.panels[id].info.website+"'>Website</a>"
 	var calenderHTML = ""
@@ -62,6 +64,7 @@ var panelTemplate = function(){
 	document.getElementById('fill-speakers').innerHTML = "Speakers:"
 	document.getElementById('panel-name').innerHTML = nameHTML
 	document.getElementById('time').innerHTML = timeHTML
+	document.getElementById('location').innerHTML = locationHTML
 	document.getElementById('tags').innerHTML = tagsHTML
 	document.getElementById('website').innerHTML = websiteHTML
 	document.getElementById('calender').innerHTML = calenderHTML
@@ -95,11 +98,27 @@ var panelListTemplate = function(){
 	if(!panelBuilt){
 		list = window.appData['panels']
 		html=''
+		sortArray = [];
 		for(item in list){
-			console.log(list[item])
-			var title = list[item].info.title
-			var time = getDate(list[item].data.time)
-			html=html+"<li><a href='#panel."+item+"'><div>"+time+"</div><div>"+title+"</div></a></li>"
+			list[item].id=item
+			sortArray.push(list[item]);
+		}
+
+		console.log(sortArray)
+		sortArray.sort(function(a,b){
+			if(a.info.title>b.info.title){
+				return 1;
+			}else if(a.info.title<b.info.title){
+				return -1;
+			}else{
+				return 0;
+			}
+		});
+		for(item in sortArray){
+			console.log(sortArray[item])
+			var title = sortArray[item].info.title
+			var time = sortArray[item].data.day + " " +sortArray[item].info.time
+			html=html+"<li><a href='#panel."+sortArray[item].id+"'><div>"+title+"</div><div>"+time+"</div></a></li>"
 		}
 		panelBuilt=true;
 		document.getElementById('panel-list').innerHTML = html
@@ -162,19 +181,19 @@ var calenderTemplate = function(){
 		day3.sort(function(a,b) { return parseInt(a.time) - parseInt(b.time) } );
 		for(item in day1){
 			var id = day1[item].id
-			var time = getDate(day1[item].time)
+			var time = getDate(day1[item].time, day1[item].data.day)
 			var title = day1[item].title
 			day1HTML=day1HTML+"<li><a href='#panel."+id+"'><div>"+time+"</div><div>"+title+"</div></a></li>"
 		}
 		for(item in day2){
 			var id = day2[item].id
-			var time = getDate(day2[item].time)
+			var time = getDate(day2[item].time, day2[item].data.day)
 			var title = day2[item].title
 			day2HTML=day2HTML+"<li><a href='#panel."+id+"'><div>"+time+"</div><div>"+title+"</div></a></li>"
 		}
 		for(item in day3){
 			var id = day3[item].id
-			var time = getDate(day3[item].time)
+			var time = getDate(day3[item].time, day3[item].data.day)
 			var title = day3[item].title
 			day3HTML=day3HTML+"<li><a href='#panel."+id+"'><div>"+time+"</div><div>"+title+"</div></a></li>"
 		}
@@ -212,22 +231,13 @@ var calenderTemplate = function(){
 var aboutTemplate = function(){
 }
 
-var Days = [
-	"Sunday",
-	"Monday",
-	"Tuesday",
-	"Wednesday",
-	"Thursday",
-	"Friday",
-	"Saturday"
-	]
-
-var getDate = function(unix){
+var getDate = function(unix,day){
 	var AM="AM";
 	var date = new Date(unix*1000);
 	var Year = date.getFullYear();
 	var Month = date.getMonth();
-	var Day = Days[date.getDay()];
+	console.log(date.getDay());
+	var Day = day;
 	var Hour = date.getHours();
 	var Minute = date.getMinutes();
 	if(Hour>12){
